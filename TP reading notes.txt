@@ -62,7 +62,16 @@ V. Chapter 5
 
 VI. Chapter 6
 
-VII. Chapter 7
+1. Return Values
+2. Incremental Development
+3. Composition
+4. Boolean Functions
+5. More Recursion
+6. Leap of Faith
+7. Checking Types
+8. Debugging
+
+VII. Chapter 7 Iteration
 
 1. Multiple Assignment: to distinguish between an assignment operation and a statement of equality
 2. Updating Variables: (1)increment (2)decrement
