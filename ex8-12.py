@@ -17,3 +17,5 @@ def rotate_word(word, number):
 
 rotate_word("abcdefgh", 28)
 		
+		
+#my verion is kinda poor, go check out rotate from author XD
