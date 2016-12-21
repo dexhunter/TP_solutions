@@ -1,4 +1,5 @@
-Reading notes:
+##Reading notes:
+
 1. two kinds of programs process high level language into low level language: interpreter & compiler
 
 2. source code -> interpreter -> outputx
@@ -38,7 +39,7 @@ Reading notes:
 	(4) Repeat steps 1-3 until you have a set of working functions. Copy and paste working code to aviod retyping( and re-bugging)
 	(5) Loot for opportunities to improve the program by refactoring. For example, if you have similar code in several places, consider facotring it into an appropriately general function.
 
-V. Chapter 5
+#V. Chapter 5
 
 19. modulus operator: %
 20. boolean expressions: either true or false
@@ -60,7 +61,7 @@ V. Chapter 5
 				(2)There is something wrong with the function; a post condition is violated.
 				(3)These is something wrong with the return value or the way it is being used.
 
-VI. Chapter 6
+#VI. Chapter 6
 
 1. Return Values
 2. Incremental Development
@@ -71,7 +72,7 @@ VI. Chapter 6
 7. Checking Types
 8. Debugging
 
-VII. Chapter 7 Iteration
+#VII. Chapter 7 Iteration
 
 1. Multiple Assignment: to distinguish between an assignment operation and a statement of equality
 2. Updating Variables: (1)increment (2)decrement
