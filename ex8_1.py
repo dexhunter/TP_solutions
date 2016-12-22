@@ -1,8 +1,4 @@
-def display(s):
-	index = len(s) - 1
-	while index >= 0:
-		letter = s[index]
-		print letter
-		index = index - 1
+# experiment with string methods, preferrably run on python 3
 
-display("banana")
+print 'www.example.com'.strip('cmow.')
+print "apple".replace("a", "i")
