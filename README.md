@@ -10,3 +10,10 @@ This is time to re-pick up python and sharpen my skills as computer science unde
 I only revised chapter 4 to 8 today. Although I found it is really interesting to combine math and programming. I worked out a couple of mathematical proof and understood deeper about math, including Bezout's identity, estimating pi with Srinivasa Ramanujan's eqution and etc.
 
 23/12/2016
+Nah, I did not do much today. I experienced smog once again, feeling terrible.
+
+24/12/2016
+Christmas Eve, but I am not stay at home so meh I think I will do more exerices than yesterday. I have to admit my effiency is really really low today and stuck in maths again! 
+
+25/12/2016
+メリークリスマス! Hyvää joulua! Merry Christmas!
