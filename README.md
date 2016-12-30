@@ -21,4 +21,4 @@ xmas.py is for celebrating in spite of its ugliness
 Even using a same idea to implement, the result could be dramatically different, see ex10_11.py
 
 ### _30/12/2016_
-I was reviewing all the materials recently but figure out it's better to finish all the exercise before the exams. So here we are.
+I was reviewing all the materials from school recently but figured out it could be better to finish all the exercise before the exams. So here we are.
