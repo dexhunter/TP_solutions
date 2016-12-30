@@ -1,6 +1,6 @@
 # Think-Python-book-exercise-solutions
 
-###_27/10/2015 _
+###_27/10/2015_
 I just want to help beginners a bit and this program is open, no copyright reserved. Since I am still reading Think Python, I will update this repository as soon as I can. I am also working on competitive programming, even I am a beginner myself. Good luck to all my fellows at XJTLU.
 
 ###_21/12/2016_
@@ -19,3 +19,6 @@ Christmas Eve, but I am not stay at home so meh I think I will do more exerices 
 メリークリスマス! Hyvää joulua! Merry Christmas!
 xmas.py is for celebrating in spite of its ugliness
 Even using a same idea to implement, the result could be dramatically different, see ex10_11.py
+
+### _30/12/2016_
+I was reviewing all the materials recently but figure out it's better to finish all the exercise before the exams. So here we are.

@@ -80,7 +80,9 @@
 
 
 
+# Chapter 11 Dictionaries
 
+* key and values -> key-value pair (aka item)
 
 
 

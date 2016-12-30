@@ -18,8 +18,14 @@ if __name__ == '__main__':
 '''
 import bisect as bs
 
-def index(a, x):
-    'Locate the leftmost value exactly equal to x'
+def exist_check(a, x):
+    '''
+	Checks if a is in x.
+	a: string
+	x: list
+	
+	Returns: bool
+	'''
 	#https://docs.python.org/2/library/bisect.html
     i = bs.bisect_left(a, x)
     if i != len(a) and a[i] == x:
@@ -37,7 +43,7 @@ if __name__ == '__main__':
 			word = line.strip()
 			l.append(word)
 		for i in l:
-			if index(l,i[::-1]):
+			if exist_check(l,i[::-1]):
 				ctr += 1
 				#print (i, i[::-1])
 		#This one is much faster than author's, I think it's because bisect module uses a better implementation.

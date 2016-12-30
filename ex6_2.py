@@ -6,5 +6,5 @@ def ack(m, n):
 	else:
 		return ack(m-1, ack(m, n - 1))
 
-x = ack(3, 4)
+x = ack(3, 6)
 print x
