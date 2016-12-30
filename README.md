@@ -1,5 +1,14 @@
 # Think-Python-book-exercise-solutions
 
+# Exercise Index
+* 3-1 right_justify
+* 3-2 do_twice, do_four, print_twice, etc
+* 3-3 draw_4x4_grid
+* 4-1 stack diagram for circle(bob, radius)
+* 4-2 draw flower with turtleWorld
+* 4-3 
+
+# Dairy
 ###_27/10/2015_
 I just want to help beginners a bit and this program is open, no copyright reserved. Since I am still reading Think Python, I will update this repository as soon as I can. I am also working on competitive programming, even I am a beginner myself. Good luck to all my fellows at XJTLU.
 
