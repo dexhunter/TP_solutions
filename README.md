@@ -56,6 +56,7 @@
 * 11-5 dict version of rotate
 * __11-6 homophone (sound check)__
 * 12-1 letter frequecy
+* __12-2 anagram search and sort__
 
 
 
@@ -83,3 +84,6 @@ Even using a same idea to implement, the result could be dramatically different,
 
 ### _30/12/2016_
 I was reviewing all the materials from school recently but figured out it could be better to finish all the exercise before the exams. So here we are.
+
+### _31/12/2016_
+The last day of this year, but I am still stuck with a lot of exercises in the book. I don't think I am able to finish in this year. So good luck to next year. 皆さんあけおめ!

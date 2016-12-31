@@ -12,48 +12,88 @@ License: http://creativecommons.org/licenses/by/4.0/
 from __future__ import print_function, division
 
 
-def most_frequent(s):
-    """Sorts the letters in s in reverse order of frequency.
+def signature(s):
+    """Returns the signature of this string.
+
+    Signature is a string that contains all of the letters in order.
 
     s: string
-
-    Returns: list of letters
     """
-    hist = make_histogram(s)
+    # TODO: rewrite using sorted()
+    t = list(s)
+    t.sort()
+    t = ''.join(t)
+    return t
 
+
+def all_anagrams(filename):
+    """Finds all anagrams in a list of words.
+
+    filename: string filename of the word list
+
+    Returns: a map from each word to a list of its anagrams.
+    """
+    d = {}
+    for line in open(filename):
+        word = line.strip().lower()
+        t = signature(word)
+
+        # TODO: rewrite using defaultdict
+        if t not in d:
+            d[t] = [word]
+        else:
+            d[t].append(word)
+    return d
+
+
+def print_anagram_sets(d):
+    """Prints the anagram sets in d.
+
+    d: map from words to list of their anagrams
+    """
+    for v in d.values():
+        if len(v) > 1:
+            print(len(v), v)
+
+
+def print_anagram_sets_in_order(d):
+    """Prints the anagram sets in d in decreasing order of size.
+
+    d: map from words to list of their anagrams
+    """
+    # make a list of (length, word pairs)
     t = []
-    for x, freq in hist.items():
-        t.append((freq, x))
+    for v in d.values():
+        if len(v) > 1:
+            t.append((len(v), v))
 
-    t.sort(reverse=True)
+    # sort in ascending order of length
+    t.sort()
 
-    res = []
-    for freq, x in t:
-        res.append(x)
+    # print the sorted list
+    for x in t:
+        print(x)
 
-    return res
-    
 
-def make_histogram(s):
-    """Make a map from letters to number of times they appear in s.
+def filter_length(d, n):
+    """Select only the words in d that have n letters.
 
-    s: string
+    d: map from word to list of anagrams
+    n: integer number of letters
 
-    Returns: map from letter to frequency
+    returns: new map from word to list of anagrams
     """
-    hist = {}
-    for x in s:
-        hist[x] = hist.get(x, 0) + 1
-    return hist
-
-
-def read_file(filename):
-    """Returns the contents of a file as a string."""
-    return open(filename).read()
+    res = {}
+    for word, anagrams in d.items():
+        if len(word) == n:
+            res[word] = anagrams
+    return res
 
 
 if __name__ == '__main__':
-    string = read_file('emma.txt')
-    letter_seq = most_frequent(string)
-    for x in letter_seq:
-        print(x)
+    anagram_map = all_anagrams('words.txt')
+    print_anagram_sets_in_order(anagram_map)
+
+    eight_letters = filter_length(anagram_map, 8)
+    print_anagram_sets_in_order(eight_letters)
+    
