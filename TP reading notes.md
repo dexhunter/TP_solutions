@@ -83,10 +83,15 @@
 # Chapter 11 Dictionaries
 
 * key and values -> key-value pair (aka item)
+* associative memories
+* string and numbers can always be keys!!!
+* keys are immutable
+* Tuples can be used as keys if they contain only strings, numbers, or tuples; if a tuple contains any mutable object either directly or indirectly, it cannot be used as a key.
+* list CANNOT be keys!!!!
 
+# Chapter 12 Tuples
 
-
-
+* The key 
 
 
 

@@ -57,6 +57,7 @@
 * __11-6 homophone (sound check)__
 * 12-1 letter frequecy
 * __12-2 anagram search and sort__
+* 12-3 metathesis pairs
 
 
 
@@ -87,3 +88,9 @@ I was reviewing all the materials from school recently but figured out it could 
 
 ### _31/12/2016_
 The last day of this year, but I am still stuck with a lot of exercises in the book. I don't think I am able to finish in this year. So good luck to next year. 皆さんあけおめ!
+
+### _11/01/2017_
+Arrr, back to work.
+
+### _11/01/2017_
+Low effiency :/ I did 2 different versions for exercise 12-1, 12-2.

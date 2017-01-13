@@ -1,13 +1,13 @@
-# http://stackoverflow.com/questions/8286554/using-python-find-anagrams-for-a-list-of-words
+'''http://stackoverflow.com/questions/8286554/using-python-find-anagrams-for-a-list-of-words
 
-#hughdbrown did an amazing job and I tried to understand his code and found this one is the better so far.
-
+# hughdbrown did an amazing job and I tried to understand his code and found this one is the better so far.
+'''
 from collections import defaultdict
 
 def load_words(filename = "words.txt"):
 	with open(filename) as f:
 		for word in f:
-			yield word.rstrip()
+			yield word.rstrip() # return a generator
 
 def all_anagram(l):
 	'''Reads a list and return a set of anagram words
@@ -16,12 +16,12 @@ def all_anagram(l):
 	
 	Returns: set
 	'''
-	d = defaultdict(list)
+	d = defaultdict(list) # avoid KeyError in dict()
 	for word in l:
-		key = "".join(sorted(word))
-		d[key].append(word)
+		signature = "".join(sorted(word)) #sorted: leave the original word untouched
+		d[signature].append(word)
 	return d
-	
+
 def print_anagram(l):
 	d = all_anagram(l)
 	for key, anagram in d.iteritems():
@@ -39,10 +39,10 @@ def print_anagram_in_order(l):
 	
 	for x in new_list:
 		print x
-			
+		
+		
+		
 if __name__ == '__main__':
 	l = load_words()
-	# print_anagram(l)
+	#print_anagram(l)
 	print_anagram_in_order(l)
-		
-		
