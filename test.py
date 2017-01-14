@@ -123,5 +123,9 @@ def print_longest_words(word_dict):
 
 
 if __name__ == '__main__':
-    word_dict = make_word_dict()
-    print_longest_words(word_dict)
+	word_dict = make_word_dict()
+	#print_longest_words(word_dict)
+	print (is_reducible("restarting", word_dict))
+	print types(1)
+	for k, v in memo.items():
+		print (k,v)

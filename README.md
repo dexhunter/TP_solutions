@@ -58,6 +58,8 @@
 * 12-1 letter frequecy
 * __12-2 anagram search and sort__
 * 12-3 metathesis pairs
+* 12-4 longest reducible words
+* 13-1
 
 
 
@@ -94,3 +96,6 @@ Arrr, back to work.
 
 ### _11/01/2017_
 Low effiency :/ I did 2 different versions for exercise 12-1, 12-2.
+
+### _14/01/2017_
+Finally finish chapter 12, takes a whole day to do exercise 12-4 and read a lot posts on stackoverflow, think learned a lot 
