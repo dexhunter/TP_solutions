@@ -7,7 +7,6 @@ I misunderstodd what 'middle' mean in the question. I thought it was exactly the
 I used others' codes to test but found only when using memo can you improve performance significatnly, otherwise the process is really slow
 '''
 
-
 from collections import defaultdict
 
 memo = {}
@@ -29,7 +28,7 @@ def children(word, d):
 	
 	rest = []
 	for x in child(word, d):
-		if children(x, d):
+		if children(x, d): #if list is not empty
 			rest.append(x)
 			
 	memo[word] = rest
@@ -42,9 +41,6 @@ def all_children(d):
 		if t != []:
 			res.append(word)
 	return res
-
-
-
 
 def map_words(filename="words.txt"):
 	d = defaultdict(list)
@@ -90,3 +86,8 @@ def list_of_words(filename="words.txt"):
 '''
 
 print_longest(map_words())
+
+
+'''
+!another thought: start from the smallest 'a', 'i', and to get the longest consequence.
+'''

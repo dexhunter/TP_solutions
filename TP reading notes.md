@@ -109,4 +109,22 @@ _ has 3 main conventional uses in Python:
 * use 'in' to check whether a value is in the list
 
 
+# Chapter 13
+
+# Chapter 14 Files
+
+* persistence: run for a long time (or all the time), keep at least some of data in permanent storage
+* trasience: run for a short time, when the program ends, data vanish as well
+
+### Reading and Writing
+
+* If the file already exists, opening it in write mode clears out the old data and starts
+fresh, so be careful!
+
+* When the first oprand is a string, % is a format operator
+* relative path
+* absolute path, starts wtih '/'
+* dbm is a module in Python 3! 
+* pipe object: an object representing a running program
+* What is pickle? pickle is a module implements serializing and de-serializing a Python object structure. "Pickling" is the process whereby a Python object hierarchy is converted into a byte stream, and "unpickling" is the inverse operation
 

@@ -98,4 +98,8 @@ Arrr, back to work.
 Low effiency :/ I did 2 different versions for exercise 12-1, 12-2.
 
 ### _14/01/2017_
-Finally finish chapter 12, takes a whole day to do exercise 12-4 and read a lot posts on stackoverflow, think learned a lot 
+Finally finish chapter 12, takes a whole day to do exercise 12-4 and read a lot posts on stackoverflow. I tried several methods but found the author's answer is still best, so I rewrote the code in my own way (actually the same). A friend told me another way of solving exercise 12-4 which is interesting (a bottom-up approach), I will definitely try the method later!
+
+For now, let me skip it and chapter 13, will come back later next week.
+
+### 
