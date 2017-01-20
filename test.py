@@ -11,121 +11,122 @@ License: http://creativecommons.org/licenses/by/4.0/
 
 from __future__ import print_function, division
 
+import os
 
-def make_word_dict():
-    """Reads a word list and returns a dictionary."""
-    d = dict()
-    fin = open('words.txt')
-    for line in fin:
-        word = line.strip().lower()
-        d[word] = None
 
-    # have to add single letter words to the word list;
-    # also, the empty string is considered a word.
-    for letter in ['a', 'i', '']:
-        d[letter] = letter
+def walk(dirname):
+    """Finds the names of all files in dirname and its subdirectories.
+
+    dirname: string name of directory
+    """
+    names = []
+    if '__pycache__' in dirname:
+        return names
+
+    for name in os.listdir(dirname):
+        path = os.path.join(dirname, name)
+
+        if os.path.isfile(path):
+            names.append(path)
+        else:
+            names.extend(walk(path))
+    return names
+
+
+def compute_checksum(filename):
+    """Computes the MD5 checksum of the contents of a file.
+
+    filename: string
+    """
+    cmd = 'md5sum ' + filename
+    return pipe(cmd)
+
+
+def check_diff(name1, name2):
+    """Computes the difference between the contents of two files.
+
+    name1, name2: string filenames
+    """
+    cmd = 'diff %s %s' % (name1, name2)
+    return pipe(cmd)
+
+
+def pipe(cmd):
+    """Runs a command in a subprocess.
+
+    cmd: string Unix command
+
+    Returns (res, stat), the output of the subprocess and the exit status.
+    """
+    # Note: os.popen is deprecated
+    # now, which means we are supposed to stop using it and start using
+    # the subprocess module.  But for simple cases, I find
+    # subprocess more complicated than necessary.  So I am going
+    # to keep using os.popen until they take it away.
+
+    fp = os.popen(cmd)
+    res = fp.read()
+    stat = fp.close()
+    assert stat is None
+    return res, stat
+
+
+def compute_checksums(dirname, suffix):
+    """Computes checksums for all files with the given suffix.
+
+    dirname: string name of directory to search
+    suffix: string suffix to match
+
+    Returns: map from checksum to list of files with that checksum
+    """
+    names = walk(dirname)
+
+    d = {}
+    for name in names:
+        if name.endswith(suffix):
+            res, stat = compute_checksum(name)
+            checksum, _ = res.split()
+
+            if checksum in d:
+                d[checksum].append(name)
+            else:
+                d[checksum] = [name]
+
     return d
 
 
-"""memo is a dictionary that maps from each word that is known
-to be reducible to a list of its reducible children.  It starts
-with the empty string."""
+def check_pairs(names):
+    """Checks whether any in a list of files differs from the others.
 
-memo = {}
-memo[''] = ['']
-
-
-def is_reducible(word, word_dict):
-    """If word is reducible, returns a list of its reducible children.
-
-    Also adds an entry to the memo dictionary.
-
-    A string is reducible if it has at least one child that is 
-    reducible.  The empty string is also reducible.
-
-    word: string
-    word_dict: dictionary with words as keys
+    names: list of string filenames
     """
-     # if have already checked this word, return the answer
-    if word in memo:
-        return memo[word]
-
-    # check each of the children and make a list of the reducible ones
-    res = []
-    for child in children(word, word_dict):
-        if is_reducible(child, word_dict):
-            res.append(child)
-
-    # memoize and return the result
-    memo[word] = res
-    return res
+    for name1 in names:
+        for name2 in names:
+            if name1 < name2:
+                res, stat = check_diff(name1, name2)
+                if res:
+                    return False
+    return True
 
 
-def children(word, word_dict):
-    """Returns a list of all words that can be formed by removing one letter.
+def print_duplicates(d):
+    """Checks for duplicate files.
 
-    word: string
+    Reports any files with the same checksum and checks whether they
+    are, in fact, identical.
 
-    Returns: list of strings
+    d: map from checksum to list of files with that checksum
     """
-    res = []
-    for i in range(len(word)):
-        child = word[:i] + word[i+1:]
-        if child in word_dict:
-            res.append(child)
-    return res
+    for key, names in d.items():
+        if len(names) > 1:
+            print('The following files have the same checksum:')
+            for name in names:
+                print(name)
 
-
-def all_reducible(word_dict):
-    """Checks all words in the word_dict; returns a list reducible ones.
-
-    word_dict: dictionary with words as keys
-    """
-    res = []
-    for word in word_dict:
-        t = is_reducible(word, word_dict)
-        if t != []:
-            res.append(word)
-    return res
-
-
-def print_trail(word):
-    """Prints the sequence of words that reduces this word to the empty string.
-
-    If there is more than one choice, it chooses the first.
-
-    word: string
-    """
-    if len(word) == 0:
-        return
-    print(word, end=' ')
-    t = is_reducible(word, word_dict)
-    print_trail(t[0])
-
-
-def print_longest_words(word_dict):
-    """Finds the longest reducible words and prints them.
-
-    word_dict: dictionary of valid words
-    """
-    words = all_reducible(word_dict)
-
-    # use DSU to sort by word length
-    t = []
-    for word in words:
-        t.append((len(word), word))
-    t.sort(reverse=True)
-
-    # print the longest 5 words
-    for _, word in t[0:5]:
-        print_trail(word)
-        print('\n')
+            if check_pairs(names):
+                print('And they are identical.')
 
 
 if __name__ == '__main__':
-	word_dict = make_word_dict()
-	#print_longest_words(word_dict)
-	print (is_reducible("restarting", word_dict))
-	print types(1)
-	for k, v in memo.items():
-		print (k,v)
+    d = compute_checksums(dirname='.', suffix='.py')
+    print_duplicates(d)

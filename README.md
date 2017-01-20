@@ -60,7 +60,9 @@
 * 12-3 metathesis pairs
 * 12-4 longest reducible words
 * 13-1
-
+* 14-1 a function reads a file and change the pattern string with replacement string and output the file
+* 14-2 store dictionary in a file and look up a dictionary from given file
+* 14-3 search a directory recursively and find out duplicates by md5sum check
 
 
 
@@ -102,4 +104,5 @@ Finally finish chapter 12, takes a whole day to do exercise 12-4 and read a lot 
 
 For now, let me skip it and chapter 13, will come back later next week.
 
-### 
+### _20/01/2017_
+Finished chapter 14. A lot side-projects I was participating also happened those days. Need more time :/

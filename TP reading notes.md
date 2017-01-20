@@ -128,3 +128,27 @@ fresh, so be careful!
 * pipe object: an object representing a running program
 * What is pickle? pickle is a module implements serializing and de-serializing a Python object structure. "Pickling" is the process whereby a Python object hierarchy is converted into a byte stream, and "unpickling" is the inverse operation
 
+### The % specifiers that you can use in ANSI C are:
+
+#### Usual variable type Display
+
+* %c char single character
+
+* %d (%i) int signed integer
+
+* %e (%E) float or double exponential format
+
+* %f float or double signed decimal
+
+* %g (%G) float or double use %f or %e as required
+ 
+* %o int unsigned octal value
+
+* %p pointer address stored in pointer
+
+* %s array of char sequence of characters
+
+* %u int unsigned decimal
+
+* %x (%X) int unsigned hex value
+
