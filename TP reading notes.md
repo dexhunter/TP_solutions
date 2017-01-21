@@ -152,3 +152,7 @@ fresh, so be careful!
 
 * %x (%X) int unsigned hex value
 
+
+Chapter 15 Classes and Objects
+
+* == operator for object will check the object identity as __is__ operator rather than object equvalence, 
