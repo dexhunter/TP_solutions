@@ -35,12 +35,13 @@ def arc(t, r, angle):
 import math
 from swampy.TurtleWorld import *
 
-world = TurtleWorld()
-bob = Turtle()
-print bob
-bob.delay = 0.001
-#circle(bob,  20)
-#polygon(bob, 1, 200)
-arc(bob, 10, 180)
-bob.die()
-wait_for_user()
+if __name__ == '__main__':
+	world = TurtleWorld()
+	bob = Turtle()
+	print bob
+	bob.delay = 0.001
+	#circle(bob,  20)
+	#polygon(bob, 1, 200)
+	arc(bob, 10, 180)
+	bob.die()
+	wait_for_user()
