@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 def isosceles(t, l, theta):
 	# t : turtle
 	# l: length of legs

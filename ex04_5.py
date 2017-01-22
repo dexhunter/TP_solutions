@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 '''
 draw fermat's spiral
 ideas from Downey's original code.

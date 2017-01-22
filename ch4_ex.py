@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 def square(t):
 	for i in range(4):
 		t.fd(100)

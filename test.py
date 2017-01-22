@@ -11,122 +11,90 @@ License: http://creativecommons.org/licenses/by/4.0/
 
 from __future__ import print_function, division
 
-import os
 
-
-def walk(dirname):
-    """Finds the names of all files in dirname and its subdirectories.
-
-    dirname: string name of directory
+class Time:
+    """Represents the time of day.
+       
+    attributes: hour, minute, second
     """
-    names = []
-    if '__pycache__' in dirname:
-        return names
-
-    for name in os.listdir(dirname):
-        path = os.path.join(dirname, name)
-
-        if os.path.isfile(path):
-            names.append(path)
-        else:
-            names.extend(walk(path))
-    return names
 
 
-def compute_checksum(filename):
-    """Computes the MD5 checksum of the contents of a file.
+def print_time(t):
+    """Prints a string representation of the time.
 
-    filename: string
+    t: Time object
     """
-    cmd = 'md5sum ' + filename
-    return pipe(cmd)
+    print('%.2d:%.2d:%.2d' % (t.hour, t.minute, t.second))
 
 
-def check_diff(name1, name2):
-    """Computes the difference between the contents of two files.
+def int_to_time(seconds):
+    """Makes a new Time object.
 
-    name1, name2: string filenames
+    seconds: int seconds since midnight.
     """
-    cmd = 'diff %s %s' % (name1, name2)
-    return pipe(cmd)
+    time = Time()
+    minutes, time.second = divmod(seconds, 60)
+    time.hour, time.minute = divmod(minutes, 60)
+    return time
 
 
-def pipe(cmd):
-    """Runs a command in a subprocess.
+def time_to_int(time):
+    """Computes the number of seconds since midnight.
 
-    cmd: string Unix command
-
-    Returns (res, stat), the output of the subprocess and the exit status.
+    time: Time object.
     """
-    # Note: os.popen is deprecated
-    # now, which means we are supposed to stop using it and start using
-    # the subprocess module.  But for simple cases, I find
-    # subprocess more complicated than necessary.  So I am going
-    # to keep using os.popen until they take it away.
-
-    fp = os.popen(cmd)
-    res = fp.read()
-    stat = fp.close()
-    assert stat is None
-    return res, stat
+    minutes = time.hour * 60 + time.minute
+    seconds = minutes * 60 + time.second
+    return seconds
 
 
-def compute_checksums(dirname, suffix):
-    """Computes checksums for all files with the given suffix.
+def add_times(t1, t2):
+    """Adds two time objects.
 
-    dirname: string name of directory to search
-    suffix: string suffix to match
+    t1, t2: Time
 
-    Returns: map from checksum to list of files with that checksum
+    returns: Time
     """
-    names = walk(dirname)
-
-    d = {}
-    for name in names:
-        if name.endswith(suffix):
-            res, stat = compute_checksum(name)
-            checksum, _ = res.split()
-
-            if checksum in d:
-                d[checksum].append(name)
-            else:
-                d[checksum] = [name]
-
-    return d
+    assert valid_time(t1) and valid_time(t2)
+    seconds = time_to_int(t1) + time_to_int(t2)
+    return int_to_time(seconds)
 
 
-def check_pairs(names):
-    """Checks whether any in a list of files differs from the others.
+def valid_time(time):
+    """Checks whether a Time object satisfies the invariants.
 
-    names: list of string filenames
+    time: Time
+
+    returns: boolean
     """
-    for name1 in names:
-        for name2 in names:
-            if name1 < name2:
-                res, stat = check_diff(name1, name2)
-                if res:
-                    return False
+    if time.hour < 0 or time.minute < 0 or time.second < 0:
+        return False
+    if time.minute >= 60 or time.second >= 60:
+        return False
     return True
 
 
-def print_duplicates(d):
-    """Checks for duplicate files.
+def main():
+    # if a movie starts at noon...
+    noon_time = Time()
+    noon_time.hour = 12
+    noon_time.minute = 0
+    noon_time.second = 0
 
-    Reports any files with the same checksum and checks whether they
-    are, in fact, identical.
+    print('Starts at', end=' ')
+    print_time(noon_time)
 
-    d: map from checksum to list of files with that checksum
-    """
-    for key, names in d.items():
-        if len(names) > 1:
-            print('The following files have the same checksum:')
-            for name in names:
-                print(name)
+    # and the run time of the movie is 109 minutes...
+    movie_minutes = 109
+    run_time = int_to_time(movie_minutes * 60)
+    print('Run time', end=' ')
+    print_time(run_time)
 
-            if check_pairs(names):
-                print('And they are identical.')
+    # what time does the movie end?
+    end_time = add_times(noon_time, run_time)
+    print('Ends at', end=' ')
+    print_time(end_time)
 
 
 if __name__ == '__main__':
-    d = compute_checksums(dirname='.', suffix='.py')
-    print_duplicates(d)
+    main()

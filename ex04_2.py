@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 from swampy.TurtleWorld import *
 from polygon import arc
 

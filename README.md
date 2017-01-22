@@ -63,6 +63,8 @@
 * 14-1 a function reads a file and change the pattern string with replacement string and output the file
 * 14-2 store dictionary in a file and look up a dictionary from given file
 * 14-3 search a directory recursively and find out duplicates by md5sum check
+* 15-1 class and objects instantiation
+* 15-2 combine turtle and class, math proof for overlapping problem(back in 15-1)
 
 
 
@@ -106,3 +108,9 @@ For now, let me skip it and chapter 13, will come back later next week.
 
 ### _20/01/2017_
 Finished chapter 14. A lot side-projects I was participating also happened those days. Need more time :/
+
+### _21/01/2017_
+When I looked back at the code I wrote a year ago, I felt what the heck did I wrote. But I believe with my skill improving, my coding habit will be more reliable and easier to debug for future use.
+
+### _22/01/2017_
+I started to feel even when everyone can have access to Internet and learn anything, humans are still just animals. By that I mean there are universal behaviors and habits we inherit. No matter how hard we try, the behavior is still there and we cannot get rid of it as long as we are made of same elements.
