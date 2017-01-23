@@ -114,3 +114,10 @@ When I looked back at the code I wrote a year ago, I felt what the heck did I wr
 
 ### _22/01/2017_
 I started to feel even when everyone can have access to Internet and learn anything, humans are still just animals. By that I mean there are universal behaviors and habits we inherit. No matter how hard we try, the behavior is still there and we cannot get rid of it as long as we are made of same elements.
+
+
+### _23/01/2017_
+I was lightheaded after going back to home. My usual living habits are violated and things turns to be not working as well. I am surrounded by people and feel sick. Life should be back to track from this day. Looking forward to it. 
+
+Chapter 16 is mostly about datetime manipulation. 
+
