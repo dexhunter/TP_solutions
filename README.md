@@ -65,7 +65,8 @@
 * 14-3 search a directory recursively and find out duplicates by md5sum check
 * 15-1 class and objects instantiation
 * 15-2 combine turtle and class, math proof for overlapping problem(back in 15-1)
-
+* 16-1 mul_time
+* 16-2 datetime, time, timedelta, etc manipulation
 
 
 # Dairy
