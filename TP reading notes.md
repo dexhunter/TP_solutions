@@ -156,3 +156,8 @@ fresh, so be careful!
 Chapter 15 Classes and Objects
 
 * == operator for object will check the object identity as __is__ operator rather than object equvalence, 
+
+
+Chapter 17 Classes and Methods
+
+* Object-oriented: represents relationship between programmer-defined types and functions
