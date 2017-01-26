@@ -67,6 +67,8 @@
 * 15-2 combine turtle and class, math proof for overlapping problem(back in 15-1)
 * 16-1 mul_time
 * 16-2 datetime, time, timedelta, etc manipulation
+* 17-1 rewrite time class in methods
+* 17-2 debug kangroo class (list initialization)
 
 
 # Dairy
