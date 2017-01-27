@@ -59,7 +59,10 @@
 * __12-2 anagram search and sort__
 * 12-3 metathesis pairs
 * 12-4 longest reducible words
-* 13-1
+* 13-1 read a text file and breaks to words with stripped string.puncutation and string.whitespace
+* 13-2 read a text file from project Gutenberg and count number of words 
+
+
 * 14-1 a function reads a file and change the pattern string with replacement string and output the file
 * 14-2 store dictionary in a file and look up a dictionary from given file
 * 14-3 search a directory recursively and find out duplicates by md5sum check
@@ -124,3 +127,5 @@ I was lightheaded after going back to home. My usual living habits are violated 
 
 Chapter 16 is mostly about datetime manipulation. 
 
+### _28/01/2017_
+Today is Chinese new year. Since I am currently living in China, I decided to do something different, like finish chapter 13. :)

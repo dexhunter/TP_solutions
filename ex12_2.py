@@ -26,7 +26,7 @@ def print_anagram(l):
 	d = all_anagram(l)
 	for key, anagram in d.iteritems():
 		if len(anagram) > 1:	
-			print anagram
+			print (anagram)
 			#print (key, anagram)
 			
 def print_anagram_in_order(l):
@@ -38,7 +38,7 @@ def print_anagram_in_order(l):
 	new_list.sort(reverse=True) # sort in descending order
 	
 	for x in new_list:
-		print x
+		print (x)
 		
 		
 		

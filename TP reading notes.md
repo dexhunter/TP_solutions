@@ -163,3 +163,4 @@ Chapter 17 Classes and Methods
 * Object-oriented: represents relationship between programmer-defined types and functions
 
 Chapter 18 Inheritance
+* veneer: a method or function that provide a different interface to another function without doing much computation
