@@ -14,6 +14,8 @@ def read_file(filename):
 	'''Reads a file and return stripped strings
 	
 	filename: str
+	
+	Returns a generator contains byte unicode?
 	'''
 	remove_chars = list(string.punctuation + string.whitespace)
 	with open(filename, encoding="utf8") as fin:

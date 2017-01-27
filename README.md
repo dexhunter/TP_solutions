@@ -61,7 +61,7 @@
 * 12-4 longest reducible words
 * 13-1 read a text file and breaks to words with stripped string.puncutation and string.whitespace
 * 13-2 read a text file from project Gutenberg and count number of words 
-
+* 13-3 count 20 most frequently used word
 
 * 14-1 a function reads a file and change the pattern string with replacement string and output the file
 * 14-2 store dictionary in a file and look up a dictionary from given file
