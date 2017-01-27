@@ -161,3 +161,5 @@ Chapter 15 Classes and Objects
 Chapter 17 Classes and Methods
 
 * Object-oriented: represents relationship between programmer-defined types and functions
+
+Chapter 18 Inheritance
