@@ -1,5 +1,7 @@
 # Think-Python-book-exercise-solutions
 
+_sorted by exercise index_
+
 # Exercise Index (Bold for Important or Interesting Exercises)
 * 3-1 right_justify
 * 3-2 do_twice, do_four, print_twice, etc
@@ -62,6 +64,12 @@
 * 13-1 read a text file and breaks to words with stripped string.puncutation and string.whitespace
 * 13-2 read a text file from project Gutenberg and count number of words 
 * 13-3 count 20 most frequently used word
+* 13-4 
+* 13-5
+* 13-6
+* 13-7
+* __13-8 Markov analysis__
+* __13-9 Zipf's law implementation__ 
 
 * 14-1 a function reads a file and change the pattern string with replacement string and output the file
 * 14-2 store dictionary in a file and look up a dictionary from given file
@@ -72,6 +80,8 @@
 * 16-2 datetime, time, timedelta, etc manipulation
 * 17-1 rewrite time class in methods
 * 17-2 debug kangroo class (list initialization)
+* 18-1 UML diagram for PingPong
+* 18-2 
 
 
 # Dairy
@@ -129,3 +139,7 @@ Chapter 16 is mostly about datetime manipulation.
 
 ### _28/01/2017_
 Today is Chinese new year. Since I am currently living in China, I decided to do something different, like finish chapter 13. :)
+
+### _31/01/2017_
+The last day of January. How long did I wrote for this book already? (About one and a half month!) After all the exercises I did, I felt _PYTHONIC IS BEAUTIFUL_!!! Besides, the author's are witty and knowledgeable. So I really enjoyed his book. 
+

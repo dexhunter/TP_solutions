@@ -1,0 +1,1 @@
+def choose_form_hist(histogram)

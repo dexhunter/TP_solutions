@@ -1,14 +1,20 @@
 '''I was wondering to use bisect search but still lack of effiency to tell wether a word is typo or should be included in the word list
 
 Besides, it will be a good practice to use a dict to store both word lists but I will just skip this one for now and read the answer
+
+(28/01/2017)Update: after reading author's answer, I found there are several things I ignored during process. For example, hyphens are not processed. But author does not even bother with translate at all. :/
 '''
 
 import string
 '''
 another method for ex13_1,13_2,13_3
 '''
+
 def load_word_as_dict(filename):
-	'''use memo'''
+	'''Loads a file as a "memoized" dictionary mapping from word to frequency
+	
+	Return the dictionary
+	'''
 	d = {}
 	with open(filename, encoding='utf8') as fin:
 		for line in fin:
@@ -33,9 +39,9 @@ def check_word_in_book(wordlist, book_wordlist):
 if __name__ == '__main__':
 	d1 = load_word_as_dict('words.txt')
 	#for i in d1:
-	#	print(i, d1[i])
+	#	print(i, d1[i]) #test
 	d2 = load_word_as_dict('PrideandPrejudice.txt')
 	#for i in d2:
-	#	print(i, d2[i])		
+	#	print(i, d2[i]) #test
 	check_word_in_book(d1, d2)
 	
