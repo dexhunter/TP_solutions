@@ -106,7 +106,10 @@ _ has 3 main conventional uses in Python:
 * use 'in' to check whether a value is in the list
 
 
-## Chapter 13
+## Chapter 13 Case Study: Data Structure Selection
+
+
+
 
 ## Chapter 14 Files
 
@@ -162,4 +165,4 @@ fresh, so be careful!
 ## Chapter 18 Inheritance
 * veneer: a method or function that provide a different interface to another function without doing much computation
 
-## Chapter 19
+## Chapter 19 The Goodies

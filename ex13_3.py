@@ -13,5 +13,5 @@ if __name__ == '__main__':
 	#print(list(read_file('PrideandPrejudice.txt'))) #check
 	l = list(read_file('PrideandPrejudice.txt'))
 	count_number_frequency(l)
-	print("Total number of unique different words is: ", len(set(l)))
-	print("Total number of words is:", len(l))
+	print("Total number of unique different words is: ", len(set(l))) #8141
+	print("Total number of words is:", len(l)) #124493
