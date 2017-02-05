@@ -1,9 +1,10 @@
-# Think-Python-book-exercise-solutions
+# _Think Python_ solutions
 
-Author: Dex D. Hunter
-[License](https://creativecommons.org/licenses/by/4.0/): ![](https://licensebuttons.net/l/by/3.0/88x31.png)
+* Author: Dex D. Hunter
 
-_sorted by exercise index_
+* [License](https://creativecommons.org/licenses/by/4.0/): ![](https://licensebuttons.net/l/by/3.0/88x31.png)
+
+Hi there! This is my approach to _think python_ written by Allen Downey. You can see his book [there](http://greenteapress.com/wp/think-python-2e/) and I adapted his answers in some of solutions (see my code to find out where). To find a particular exercise, you can search through the index. Cheers!
 
 # Exercise Index (Bold for Important or Interesting Exercises)
 * 3-1 right_justify
