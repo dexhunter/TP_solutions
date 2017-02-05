@@ -64,10 +64,10 @@ _sorted by exercise index_
 * 13-1 read a text file and breaks to words with stripped string.puncutation and string.whitespace
 * 13-2 read a text file from project Gutenberg and count number of words 
 * 13-3 count 20 most frequently used word
-* 13-4 
-* 13-5
-* 13-6
-* 13-7
+* 13-4 subtract_version_1
+* 13-5 choose_from_hist
+* 13-6 subtract_with_set
+* 13-7 choose_from_hist_version_2
 * __13-8 Markov analysis__
 * __13-9 Zipf's law implementation__ 
 
