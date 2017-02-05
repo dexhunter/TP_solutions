@@ -1,5 +1,8 @@
 # Think-Python-book-exercise-solutions
 
+Author: Dex D. Hunter
+[License](https://creativecommons.org/licenses/by/4.0/): ![](https://licensebuttons.net/l/by/3.0/88x31.png)
+
 _sorted by exercise index_
 
 # Exercise Index (Bold for Important or Interesting Exercises)

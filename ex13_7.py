@@ -3,12 +3,13 @@ import sys
 import codecs
 from random import randint
 from bisect import bisect
+import collections
 
 def read_file(filename):
 	'''adapted from author's answer
 		Read a file and return histogram of frequency of every word
 	'''
-	hist  = {}
+	hist  = collections.Counter()
 	fp = open(filename, encoding="utf8")
 	for line in fp:
 		line = line.replace('-', ' ') # remove hyphens
@@ -31,11 +32,11 @@ def choose_from_random(hist):
 	cs = cumsum(list(int(i) for i in hist.values())) #cumulative sum of wordlist
 	total = cs[-1] 
 	x = randint(0,total-1)
-	index = bisect(cs, x)
+	index = bisect(cs, x) #TODO: understand bisect
 	return l[index]
 	
 if __name__ == '__main__':
 	hist = read_file('emma.txt') #it is not working on 'PrideandPrejudice.txt' since there are different encoing schemes involved 
-	# TO DO: learn encoding souce: http://stackoverflow.com/questions/14630288/unicodeencodeerror-charmap-codec-cant-encode-character-maps-to-undefined
+	# TODO: learn encoding souce: http://stackoverflow.com/questions/14630288/unicodeencodeerror-charmap-codec-cant-encode-character-maps-to-undefined
 	print(choose_from_random(hist))
 	
