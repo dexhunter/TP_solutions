@@ -74,7 +74,6 @@ Hi there! This is my approach to _think python_ written by Allen Downey. You can
 * 13-7 choose_from_hist_version_2
 * __13-8 Markov analysis__
 * __13-9 Zipf's law implementation__ 
-
 * 14-1 a function reads a file and change the pattern string with replacement string and output the file
 * 14-2 store dictionary in a file and look up a dictionary from given file
 * 14-3 search a directory recursively and find out duplicates by md5sum check

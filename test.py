@@ -11,139 +11,110 @@ License: http://creativecommons.org/licenses/by/4.0/
 
 from __future__ import print_function, division
 
-import random
+import sys
 import string
-import collections
+import random
 
-def process_file(filename, skip_header):
-	"""Makes a histogram that contains the words from a file.
+# global variables
+suffix_map = {}        # map from prefixes to a list of suffixes
+prefix = ()            # current tuple of words
 
-	filename: string
-	skip_header: boolean, whether to skip the Gutenberg header
-   
-	returns: map from each word to the number of times it appears.
-	"""
-	hist = collections.Counter()
-	fp = open(filename)
 
-	if skip_header:
-		skip_gutenberg_header(fp)
+def process_file(filename, order=2):
+    """Reads a file and performs Markov analysis.
 
-	for line in fp:
-		process_line(line, hist)
+    filename: string
+    order: integer number of words in the prefix
 
-	return hist
+    returns: map from prefix to list of possible suffixes.
+    """
+    fp = open(filename)
+    skip_gutenberg_header(fp)
+
+    for line in fp:
+        for word in line.rstrip().split():
+            process_word(word, order)
 
 
 def skip_gutenberg_header(fp):
-	"""Reads from fp until it finds the line that ends the header.
+    """Reads from fp until it finds the line that ends the header.
 
-	fp: open file object
-	"""
-	for line in fp:
-		if line.startswith('*END*THE SMALL PRINT!'):
-			break
-
-
-def process_line(line, hist):
-	"""Adds the words in the line to the histogram.
-
-	Modifies hist.
-
-	line: string
-	hist: histogram (map from word to frequency)
-	"""
-	hist.update([word.strip(string.punctuation + string.whitespace).lower() for word in line.replace('-', ' ').split()])
+    fp: open file object
+    """
+    for line in fp:
+        if line.startswith('*END*THE SMALL PRINT!'):
+            break
 
 
-def most_common(hist):
-	"""Makes a list of word-freq pairs in descending order of frequency.
+def process_word(word, order=2):
+    """Processes each word.
 
-	hist: map from word to frequency
+    word: string
+    order: integer
 
-	returns: list of (frequency, word) pairs
-	"""
-	t = []
-	for key, value in hist.items():
-		t.append((value, key))
+    During the first few iterations, all we do is store up the words; 
+    after that we start adding entries to the dictionary.
+    """
+    global prefix
+    if len(prefix) < order:
+        prefix += (word,)
+        return
 
-	t.sort()
-	t.reverse()
-	return t
+    try:
+        suffix_map[prefix].append(word)
+    except KeyError:
+        # if there is no entry for this prefix, make one
+        suffix_map[prefix] = [word]
 
-
-def print_most_common(hist, num=10):
-	"""Prints the most commons words in a histgram and their frequencies.
-	
-	hist: histogram (map from word to frequency)
-	num: number of words to print
-	"""
-	t = most_common(hist)
-	print('The most common words are:')
-	for freq, word in t[:num]:
-		print(word, '\t', freq)
+    prefix = shift(prefix, word)
 
 
-def subtract(d1, d2):
-	"""Returns a dictionary with all keys that appear in d1 but not d2.
+def random_text(n=100):
+    """Generates random wordsfrom the analyzed text.
 
-	d1, d2: dictionaries
-	"""
-	# TODO: reimplement using Counter
-	res = {}
-	for key in d1:
-		if key not in d2:
-			res[key] = None
-	return res
+    Starts with a random prefix from the dictionary.
 
+    n: number of words to generate
+    """
+    # choose a random prefix (not weighted by frequency)
+    start = random.choice(list(suffix_map.keys()))
+    
+    for i in range(n):
+        suffixes = suffix_map.get(start, None)
+        if suffixes == None:
+            # if the start isn't in map, we got to the end of the
+            # original text, so we have to start again.
+            random_text(n-i)
+            return
 
-def total_words(hist):
-	"""Returns the total of the frequencies in a histogram."""
-	return sum(hist.values())
-
-
-def different_words(hist):
-	"""Returns the number of different words in a histogram."""
-	return len(hist)
-
-
-def random_word(hist):
-	"""Chooses a random word from a histogram.
-
-	The probability of each word is proportional to its frequency.
-	"""
-	# TODO: rewrite using Counter
-	t = []
-	for word, freq in hist.items():
-		t.extend([word] * freq)
-
-	return random.choice(t)
+        # choose a random suffix
+        word = random.choice(suffixes)
+        print(word, end=' ')
+        start = shift(start, word)
 
 
-def main():
-	hist = process_file('emma.txt', skip_header=True)
-	print('Total number of words:', total_words(hist))
-	print('Number of different words:', different_words(hist))
+def shift(t, word):
+    """Forms a new tuple by removing the head and adding word to the tail.
 
-	t = most_common(hist)
-	print('The most common words are:')
-	for freq, word in t[0:20]:
-		print(word, '\t', freq)
-		
-	'''
-	words = process_file('words.txt', skip_header=False)
+    t: tuple of strings
+    word: string
 
-	diff = subtract(hist, words)
-	print("The words in the book that aren't in the word list are:")
-	for word in diff.keys():
-		print(word, end=' ')
+    Returns: tuple of strings
+    """
+    return t[1:] + (word,)
 
-	print("\n\nHere are some random words from the book")
-	for i in range(100):
-		print(random_word(hist), end=' ')
-	'''
+
+def main(script, filename='emma.txt', n=100, order=2):
+    try:
+        n = int(n)
+        order = int(order)
+    except ValueError:
+        print('Usage: %d filename [# of words] [prefix length]' % script)
+    else: 
+        process_file(filename, order)
+        random_text(n)
+        print()
 
 
 if __name__ == '__main__':
-	main()
-
+    main(*sys.argv)

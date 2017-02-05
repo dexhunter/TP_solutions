@@ -108,6 +108,9 @@ _ has 3 main conventional uses in Python:
 
 ## Chapter 13 Case Study: Data Structure Selection
 
+#### What is difference between `return` and `pass` in python? [Souce](http://stackoverflow.com/questions/7872611/in-python-what-is-the-difference-between-pass-and-return)
+
+* `Return` exits the current function or method. `Pass` is a null operation and allows execution to continue at the next statement.
 
 
 
