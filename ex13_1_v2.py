@@ -2,7 +2,8 @@ import string
 import collections
 
 def read_file(filename, skip_header=True):
-	"""Makes a histogram that contains the words from a file. **Rewrite the author's method for simplicity**
+	"""Makes a histogram that contains the words from a file. 
+	**Rewrite the author's method for simplicity**
 
 	filename: string
 	skip_header: boolean, default=True
