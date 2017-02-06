@@ -112,6 +112,10 @@ _ has 3 main conventional uses in Python:
 
 * `Return` exits the current function or method. `Pass` is a null operation and allows execution to continue at the next statement.
 
+#### Rubber duck debugging
+
+* Sometimes when you ask a question, you find the answer before you finish asking, then you don't need to ask a real person, you can just ask a rubber duck. It's a real thing called rubber duck debugging, you can just see the wikipedia.
+
 
 
 ## Chapter 14 Files
