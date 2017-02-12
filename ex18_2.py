@@ -1,149 +1,116 @@
-"""This module contains a code example related to
-
-Think Python, 2nd Edition
-by Allen Downey
-http://thinkpython2.com
-
-Copyright 2015 Allen Downey
-
-License: http://creativecommons.org/licenses/by/4.0/
-"""
-
-from __future__ import print_function, division
-
 import random
 
-
 class Card:
-    """Represents a standard playing card.
-    
-    Attributes:
-      suit: integer 0-3
-      rank: integer 1-13
-    """
-
-    suit_names = ["Clubs", "Diamonds", "Hearts", "Spades"]
-    rank_names = [None, "Ace", "2", "3", "4", "5", "6", "7", 
-              "8", "9", "10", "Jack", "Queen", "King"]
-
-    def __init__(self, suit=0, rank=2):
-        self.suit = suit
-        self.rank = rank
-
-    def __str__(self):
-        """Returns a human-readable string representation."""
-        return '%s of %s' % (Card.rank_names[self.rank],
-                             Card.suit_names[self.suit])
-
-    def __eq__(self, other):
-        """Checks whether self and other have the same rank and suit.
-
-        returns: boolean
-        """
-        return self.suit == other.suit and self.rank == other.rank
-
-    def __lt__(self, other):
-        """Compares this card to other, first by suit, then rank.
-
-        returns: boolean
-        """
-        t1 = self.suit, self.rank
-        t2 = other.suit, other.rank
-        return t1 < t2
-
-
+	''' class represents suit of cars, encoding with numbers 
+	
+	Attributes:
+		suit;
+		rank;
+	
+	sapdes -> 3
+	hearts -> 2
+	diamonds -> 1
+	clubs -> 0
+	
+	jack -> 11
+	queen -> 12
+	king -> 13
+	
+	
+	'''
+	# Attribute
+	suit_names = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+	rank_names = [None, 'Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
+	
+	def __init__(self, suit=0, rank=2):
+		self.suit = suit
+		self.rank = rank
+		
+	def __str__(self):
+		return '%s of %s' % (Card.rank_names[self.rank], Card.suit_names[self.suit])
+	
+	def __lt__(self, other):
+		# first compare suit
+		if self.suit < other.suit: return True
+		if self.suit > other.suit: return False
+		
+		# if suit is the same then compare rank
+		return self.rank < other.rank
+		
+		
 class Deck:
-    """Represents a deck of cards.
-
-    Attributes:
-      cards: list of Card objects.
-    """
-    
-    def __init__(self):
-        """Initializes the Deck with 52 cards.
-        """
-        self.cards = []
-        for suit in range(4):
-            for rank in range(1, 14):
-                card = Card(suit, rank)
-                self.cards.append(card)
-
-    def __str__(self):
-        """Returns a string representation of the deck.
-        """
-        res = []
-        for card in self.cards:
-            res.append(str(card))
-        return '\n'.join(res)
-
-    def add_card(self, card):
-        """Adds a card to the deck.
-
-        card: Card
-        """
-        self.cards.append(card)
-
-    def remove_card(self, card):
-        """Removes a card from the deck or raises exception if it is not there.
-        
-        card: Card
-        """
-        self.cards.remove(card)
-
-    def pop_card(self, i=-1):
-        """Removes and returns a card from the deck.
-
-        i: index of the card to pop; by default, pops the last card.
-        """
-        return self.cards.pop(i)
-
-    def shuffle(self):
-        """Shuffles the cards in this deck."""
-        random.shuffle(self.cards)
-
-    def sort(self):
-        """Sorts the cards in ascending order."""
-        self.cards.sort()
-
-    def move_cards(self, hand, num):
-        """Moves the given number of cards from the deck into the Hand.
-
-        hand: destination Hand object
-        num: integer number of cards to move
-        """
-        for i in range(num):
-            hand.add_card(self.pop_card())
-
-
+	'''class represents deck
+	
+	Attributes:
+		cards
+	'''
+	
+	def __init__(self):
+		self.cards = []
+		for suit in range(4):
+			for rank in range(1, 14):
+				card = Card(suit, rank)
+				self.cards.append(card)
+	
+	def __str__(self):
+		res = []
+		for card in self.cards:
+			res.append(str(card))
+		return '\n'.join(res)
+		
+	def pop_card(self):
+		'''remove the last card from the deck'''
+		return self.cards.pop()
+		
+	def add_card(self, card):
+		''' add a card to the last position of deck (using veneer methods)'''
+		self.cards.append(card)
+		
+	def shuffle(self):
+		'''shuffle the deck randomly'''
+		random.shuffle(self.cards)
+		
+	def sort(self):
+		'''sort the deck in descending ordoer'''
+		self.cards.sort()
+		
+	def move_card(self, hand, num):
+		'''move card(s) to another Hand or Deck'''
+		for i in range(num):
+			hand.add_card(self.pop_card())
+			
+	def deal_hands(self, num_of_hands, num_of_cards_per_hand):
+		'''deal hands
+		
+		num_of_hands: int
+		num_of_cards_per_hand: list
+		
+		'''
+		hand_list = []
+		for i in range(num_of_hand):
+			h = Hand("Hand No. %d" % i)
+			self.move_card(h, num_of_cards_per_hand)
+			hand_list.append(h)
+		return hand_list
+		
+		
 class Hand(Deck):
-    """Represents a hand of playing cards."""
-    
-    def __init__(self, label=''):
-        self.cards = []
-        self.label = label
-
-
-def find_defining_class(obj, method_name):
-    """Finds and returns the class object that will provide 
-    the definition of method_name (as a string) if it is
-    invoked on obj.
-
-    obj: any python object
-    method_name: string method name
-    """
-    for ty in type(obj).mro():
-        if method_name in ty.__dict__:
-            return ty
-    return None
-
-
+	'''class represents cards on hand, inherited from deck '''
+	
+	def __init__(self, label=''):
+		'''initialize cards on hand, and label which hand is using'''
+		self.cards = []
+		self.label = label
+		
 if __name__ == '__main__':
-    deck = Deck()
-    deck.shuffle()
-
-    hand = Hand()
-    print(find_defining_class(hand, 'shuffle'))
-
-    deck.move_cards(hand, 5)
-    hand.sort()
-    print(hand)
+	king_of_spades = Card(3, 13) # test
+	print(king_of_spades)
+	d = Deck() #test
+	print('\n---initial result---')
+	print(d)
+	d.shuffle()
+	print('\n---shuffle result---')
+	print(d)
+	d.sort()
+	print('\n---sort result---')
+	print(d)

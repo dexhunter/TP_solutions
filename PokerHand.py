@@ -43,6 +43,7 @@ class PokerHand(Hand):
 	
 	def has_twopair(self):
 		''' has two pair '''
+		
 
 
 if __name__ == '__main__':
