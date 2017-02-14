@@ -42,7 +42,7 @@ class Deck:
 	'''class represents deck
 	
 	Attributes:
-		cards
+		cards: list
 	'''
 	
 	def __init__(self):
@@ -87,7 +87,7 @@ class Deck:
 		
 		'''
 		hand_list = []
-		for i in range(num_of_hand):
+		for i in range(num_of_hands):
 			h = Hand("Hand No. %d" % i)
 			self.move_card(h, num_of_cards_per_hand)
 			hand_list.append(h)
@@ -114,3 +114,9 @@ if __name__ == '__main__':
 	d.sort()
 	print('\n---sort result---')
 	print(d)
+	print('\n---deal_hand test result---')
+	li = d.deal_hands(5,4)
+	for h in li:
+		print (h.label)
+		print (h)
+		
