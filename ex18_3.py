@@ -76,7 +76,7 @@ class PokerHand(Hand):
 		
 		flush: five cards with the same suit
 		'''
-		label = ['pari', 'two pair', 'three of a kind', 'striaght', 'flush', 'full house', 'four of a kind', 'straight flush']
+		label = ['pair', 'two pair', 'three of a kind', 'striaght', 'flush', 'full house', 'four of a kind', 'straight flush']
 		
 
 

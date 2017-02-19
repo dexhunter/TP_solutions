@@ -173,3 +173,28 @@ fresh, so be careful!
 * veneer: a method or function that provide a different interface to another function without doing much computation
 
 ## Chapter 19 The Goodies
+
+#### conditional expressions
+
+#### list comprehensions
+
+#### generator expressions 
+
+
+#### any and all
+
+
+#### sets
+
+#### counters
+
+A Counter represents a multiset.
+
+#### defaultdict
+
+
+#### named tuples
+
+#### gathering keyword args
+
+#### 

@@ -57,3 +57,5 @@ Today is Chinese new year. Since I am currently living in China, I decided to do
 ### _31/01/2017_
 The last day of January. How long did I wrote for this book already? (About one and a half month!) After all the exercises I did, I felt _PYTHONIC IS BEAUTIFUL_!!! Besides, the author's are witty and knowledgeable. So I really enjoyed his book. 
 
+### _18/02/2017_
+Almost finish all the exercise in the book, it has been long but worth the time. I have been sick on and off, and did not push myself enough to finish the set. But to all the friends reading good luck!

@@ -87,4 +87,5 @@ Hi there! This is my approach to _think python_ written by Allen Downey. You can
 * 17-2 debug kangroo class (list initialization)
 * 18-1 UML diagram for PingPong
 * 18-2 deal_hand (Deck)
-* 18-3 
+* 18-3 add methods to PokerHand class `has_pair`, `has_twopair`
+* 19-1 conditional expression
